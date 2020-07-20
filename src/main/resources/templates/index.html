@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>首页</title>
+	<script src="/common/common.js" type="application/javascript"></script>
+</head>
+<body>
+
+<div id="app">
+	<el-button @click="open" type="primary">测试项目</el-button>
+</div>
+
+<script>
+	new Vue({
+		el: '#app',
+		data: {
+			message: 'Hello Vue!',
+		},
+		created () {
+			console.log('created......')
+		},
+		methods: {
+
+			open() {
+				this.$alert('项目运行成功了', '标题名称', {
+					confirmButtonText: '确定',
+					callback: action => {
+						this.$message({
+							type: 'info',
+							message: `action: ${ action }`
+						});
+					}
+				});
+			}
+		}
+	})
+</script>
+</body>
+</html>
